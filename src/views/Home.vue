@@ -80,7 +80,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="scss">
 .screen-reader-only {
   height: 1px;
   width: 1px;
