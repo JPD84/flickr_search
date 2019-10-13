@@ -12,6 +12,18 @@
     </p>
     <ul v-else>
       <li v-for="image in images" :key="image.id">{{image}}</li>
+      <li v-for="image in images" :key="image.id">
+  <img :src="image.url_n" :alt="image.title">
+  <div>
+    <p v-if="image.title">{{image.title}}</p>
+    <p v-else>No Title Found</p>
+    <p>By {{image.ownername}}</p>
+    <section>
+      <p>{{image.datetaken}}</p>
+      <p>Views: {{image.views}}</p>
+    </section>
+  </div>
+</li>
     </ul>
   </div>
 </template>
@@ -40,7 +52,7 @@ export default {
     fetchImages() {
       return axios({
         method: 'get',
-        url: 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=fb4a488e83462694966803eddf214f6e&text=flower&per_page=10&format=json&nojsoncallback=1',
+        url: 'https://api.flickr.com/services/rest',
         params: {
           method: 'flickr.photos.search',
           api_key: config.api_key,
